@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kaam Wali | Local Skill Connect</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo">Kaam<span class="logo-accent">Wali</span></a>
+      <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>¬
+        <a href="#categories">Services</a>
+        <a href="#how-it-works">How it works</a>
+        <a href="#trust">Trust</a>
+        <a href="#workers" class="btn btn-primary">Find Help Nearby</a>
+      </div>
+      <div class="nav-actions">
+        <a href="#login" class="btn btn-outline" onclick="openLogin(event)">Login</a>
+        <button class="btn btn-primary ml-3 hidden-md">Post a Job</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+      </div>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="badge">Trusted &amp; Verified Help Nearby</span>
+        <h1>Find trusted local help in minutes</h1>
+        <p>Connect with verified workers for cleaning, cooking, child &amp; elder care, repairs, beauty, tutoring, and more — right in your neighborhood.</p>
+        <div class="search-card">
+          <div class="search-field">
+            <label class="visually-hidden">What do you need?</label>
+            <input type="text" id="searchWhat" placeholder="E.g. Cleaning, Cooking, Nanny" />
+          </div>
+          <div class="search-field">
+            <label class="visually-hidden">Where?</label>
+            <input type="text" id="searchWhere" placeholder="Your area / pincode" />
+          </div>
+          <button class="btn btn-primary btn-wide" id="searchBtn">Search workers</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="illustration">
+          <div class="card card-1">
+            <div class="avatar">A</div>
+            <div class="meta">
+              <div class="name">Anita K.</div>
+              <div class="rating">&#9733; 4.9 &#183; 12 reviews</div>
+            </div>
+            <div class="tag">Verified &#183; Cleaning</div>
+          </div>
+          <div class="card card-2">
+            <div class="avatar">R</div>
+            <div class="meta">
+              <div class="name">Rajesh M.</div>
+              <div class="rating">&#9733; 4.8 &#183; 8 reviews</div>
+            </div>
+            <div class="tag">Verified &#183; Repair</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="categories" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Choose a service</h2>
+        <p>Browse verified workers by category</p>
+      </div>
+      <div class="category-grid" id="categoryGrid">
+        <article class="category-card" data-category="cleaning">
+          <div class="cat-icon">&#10003;</div>
+          <h3>Home Cleaning</h3>
+          <p>Dusting, mopping, deep clean</p>
+        </article>
+        <article class="category-card" data-category="cooking">
+          <div class="cat-icon">&#127866;</div>
+          <h3>Cooking</h3>
+          <p>Home-cooked meals, tiffin</p>
+        </article>
+        <article class="category-card" data-category="childcare">
+          <div class="cat-icon">&#128103;</div>
+          <h3>Child &amp; Elder Care</h3>
+          <p>Babysitting, senior support</p>
+        </article>
+        <article class="category-card" data-category="repair">
+          <div class="cat-icon">&#9998;</div>
+          <h3>Repairs</h3>
+          <p>Plumbing, electrical, AC</p>
+        </article>
+        <article class="category-card" data-category="beauty">
+          <div class="cat-icon">&#128127;</div>
+          <h3>Beauty</h3>
+          <p>Salon at home, mehendi</p>
+        </article>
+        <article class="category-card" data-category="tutoring">
+          <div class="cat-icon">&#128187;</div>
+          <h3>Tutoring</h3>
+          <p>Home tuition, classes</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works" class="section bg-light">
+    <div class="container">
+      <div class="section-head">
+        <h2>How it works</h2>
+        <p>Book trusted help in three simple steps</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Search</h3>
+          <p>Enter what you need and your area to see verified workers nearby.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Book</h3>
+          <p>Pick a date, time, and pay securely online or after service.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Service</h3>
+          <p>Worker arrives at your doorstep. Rate and review after completion.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trust" class="section">
+    <div class="container">
+      <div class="section-head">
+        <h2>Safety you can trust</h2>
+        <p>Every worker is verified before they join Kaam Wali</p>
+      </div>
+      <div class="trust-grid">
+        <div class="trust-item">
+          <div class="trust-icon">&#128274;</div>
+          <h3>ID Verified</h3>
+          <p>Aadhaar and document verification for every worker.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#128187;</div>
+          <h3>Background Checked</h3>
+          <p>Optional police verification for added peace of mind.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#9733;</div>
+          <h3>Real Reviews</h3>
+          <p>Ratings and reviews from verified bookings only.</p>
+        </div>
+        <div class="trust-item">
+          <div class="trust-icon">&#128187;</div>
+          <h3>In-App Chat</h3>
+          <p>Talk to workers without sharing your phone number.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="workers" class="section bg-light">
+    <div class="container">
+      <div class="section-head flex-between">
+        <div>
+          <h2>Available workers near you</h2>
+          <p id="resultCount">Showing all verified workers</p>
+        </div>
+        <div class="worker-filters">
+          <select id="filterCategory" class="select">
+            <option value="">All categories</option>
+            <option value="cleaning">Cleaning</option>
+            <option value="cooking">Cooking</option>
+            <option value="childcare">Child &amp; Elder Care</option>
+            <option value="repair">Repairs</option>
+            <option value="beauty">Beauty</option>
+            <option value="tutoring">Tutoring</option>
+          </select>
+          <select id="filterRating" class="select">
+            <option value="">Any rating</option>
+            <option value="4">4 stars &amp; up</option>
+            <option value="4.5">4.5 stars &amp; up</option>
+          </select>
+        </div>
+      </div>
+      <div class="worker-grid" id="workerGrid"></div>
+    </div>
+  </section>
+
+  <section class="section cta">
+    <div class="container cta-card">
+      <h2>Ready to get help?</h2>
+      <p>Join thousands of households finding trusted local workers every day.</p>
+      <a href="#login" class="btn btn-primary btn-wide">Post a Job Now</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Kaam<span class="logo-accent">Wali</span></a>
+        <p>Connecting households with trusted local skills.</p>
+      </div>
+      <div class="footer-links">
+        <div>
+          <h4>For Clients</h4>
+          <a href="#">Find workers</a>
+          <a href="#">Post a job</a>
+          <a href="#">Pricing</a>
+          <a href="#">Safety</a>
+        </div>
+        <div>
+          <h4>For Workers</h4>
+          <a href="#">Join as worker</a>
+          <a href="#">Earnings</a>
+          <a href="#">Payouts</a>
+          <a href="#">Verify ID</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Terms</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <p>&copy; 2026 Kaam Wali. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="modal-overlay" id="workerModal">
+    <div class="modal">
+      <button class="modal-close" id="closeModal">&times;</button>
+      <div class="modal-body">
+        <div class="worker-header">
+          <div class="worker-avatar" id="modalAvatar">A</div>
+          <div class="worker-info">
+            <h2 id="modalName">Worker Name</h2>
+            <div class="badge badge-verified" id="modalBadge">Verified</div>
+            <div class="rating-row">
+              <span class="stars" id="modalStars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+              <span class="review-count" id="modalReviewCount">0 reviews</span>
+            </div>
+            <p class="worker-location" id="modalLocation">Your area</p>
+          </div>
+          <button class="btn btn-whatsapp btn-wide" onclick="event.stopPropagation(); contactWhatsApp(document.getElementById('modalLocation').textContent)">Contact on WhatsApp</button>
+        </div>
+        <div class="worker-details">
+          <h3>About</h3>
+          <p id="modalBio">Experienced and reliable worker dedicated to quality service.</p>
+          <h3>Services &amp; Rates</h3>
+          <div class="services-list" id="modalServices">
+            <div class="service-item"><span>General Cleaning</span><span>₹250/hr</span></div>
+          </div>
+          <h3>Availability</h3>
+          <div class="availability" id="modalAvailability">
+            <span class="avail-slot">Mon &#8226; 9am-5pm</span>
+            <span class="avail-slot">Tue &#8226; 9am-5pm</span>
+            <span class="avail-slot">Wed &#8226; 9am-5pm</span>
+          </div>
+        </div>
+        <div class="book-card">
+          <h3>Book Now</h3>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="bookDate" />
+          </div>
+          <div class="form-group">
+            <label>Time</label>
+            <select id="bookTime">
+              <option>9:00 AM</option>
+              <option>11:00 AM</option>
+              <option>2:00 PM</option>
+              <option>4:00 PM</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Address</label>
+            <input type="text" id="bookAddress" placeholder="Your address" />
+          </div>
+          <div class="price-total">
+            <span class="price-label">Estimated total</span>
+            <span class="price-value" id="bookPrice">₹0</span>
+          </div>
+          <button class="btn btn-primary btn-wide" id="confirmBook">Confirm Booking</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal login-modal">
+      <button class="modal-close" id="closeLogin">&times;</button>
+      <div class="modal-body">
+        <div class="auth-header">
+          <h2>Welcome back</h2>
+          <p>Sign in to your Kaam Wali account</p>
+        </div>
+        <form id="loginForm" class="auth-form">
+          <div class="form-group">
+            <label for="loginEmail">Email address</label>
+            <input type="email" id="loginEmail" placeholder="you@example.com" required />
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password</label>
+            <input type="password" id="loginPassword" placeholder="••••••••" required />
+          </div>
+          <div class="form-group">
+            <label for="loginWhatsapp">WhatsApp number (optional)</label>
+            <input type="tel" id="loginWhatsapp" placeholder="+91 98765 43210" />
+          </div>
+          <button type="submit" class="btn btn-primary btn-wide">Sign in</button>
+        </form>
+        <p class="auth-footer">Don't have an account? <a href="#register">Create account</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="chatModal">
+    <div class="modal chat-modal" style="max-width: 560px; height: 70vh; display: flex; flex-direction: column;">
+      <button class="modal-close" id="closeChat">&times;</button>
+      <div class="chat-header">
+        <div class="chat-partner">
+          <div class="worker-avatar" style="width:40px;height:40px;font-size:1.1rem;">W</div>
+          <div>
+            <div class="chat-partner-name" id="chatPartnerName">Worker</div>
+            <div class="chat-status">Online</div>
+          </div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg msg-received">Hello! I'm available for cleaning services. How can I help you?</div>
+        <div class="msg msg-sent">Hi, are you available this Saturday?</div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chatInput" placeholder="Type a message..." />
+        <button class="btn btn-primary" id="sendChat" style="padding:0.75rem 1.2rem;">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <button class="chat-fab" id="chatFab" aria-label="Open chat">&#128172;</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
