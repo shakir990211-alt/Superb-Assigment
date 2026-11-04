@@ -142,7 +142,7 @@ function renderWorkers() {
 
   resultCount.textContent = `Showing ${filtered.length} verified worker${filtered.length !== 1 ? 's' : ''}`;
   workerGrid.innerHTML = filtered.map(w => `
-    <article class="worker-card" data-id="${w.id}">
+    <article class="worker-card" data-id="${w.id}" draggable="true">
       <div class="worker-img">👩‍💼</div>
       <div class="worker-body">
         <div class="worker-top">
@@ -166,6 +166,58 @@ function renderWorkers() {
     </article>
   `).join('');
 }
+
+// Drag-to-select functionality for worker cards
+let dragSource = null;
+
+workerGrid.addEventListener('dragstart', (e) => {
+  const card = e.target.closest('.worker-card');
+  if (!card) return;
+  dragSource = card;
+  card.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+  e.dataTransfer.setData('text/plain', card.dataset.id);
+});
+
+workerGrid.addEventListener('dragend', (e) => {
+  const card = e.target.closest('.worker-card');
+  if (card) card.classList.remove('dragging');
+  document.querySelectorAll('.worker-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+  dragSource = null;
+});
+
+workerGrid.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  const card = e.target.closest('.worker-card');
+  if (!card || card === dragSource) return;
+  document.querySelectorAll('.worker-card.drag-over').forEach(c => c.classList.remove('drag-over'));
+  card.classList.add('drag-over');
+});
+
+workerGrid.addEventListener('dragleave', (e) => {
+  const card = e.target.closest('.worker-card');
+  if (card) card.classList.remove('drag-over');
+});
+
+workerGrid.addEventListener('drop', (e) => {
+  e.preventDefault();
+  const card = e.target.closest('.worker-card');
+  if (!card || !dragSource || card === dragSource) return;
+  card.classList.remove('drag-over');
+  card.classList.add('selected');
+  dragSource.classList.remove('dragging');
+  dragSource = null;
+});
+
+// Click to toggle selection
+workerGrid.addEventListener('click', (e) => {
+  const card = e.target.closest('.worker-card');
+  if (!card) return;
+  // Don't toggle if clicking action buttons
+  if (e.target.closest('.worker-actions')) return;
+  card.classList.toggle('selected');
+});
 
 window.openWorker = function (id) {
   const w = workers.find(x => x.id === id);
@@ -241,7 +293,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 
 function contactWhatsApp(area) {
   const number = "919876543210";
-  const text = `Hi, I saw your Kaam Wali profile for services in ${area}. I'd like to book a service.`;
+  const text = `Hi, I saw your Rozgaar Scheme profile for services in ${area}. I'd like to book a service.`;
   const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
 }
@@ -330,14 +382,23 @@ searchBtn.addEventListener('click', () => {
 // Mobile menu
 menuToggle.addEventListener('click', () => {
   navLinks.classList.toggle('open');
+  menuToggle.classList.toggle('open');
+});
+
+// Close mobile menu when clicking a link
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    menuToggle.classList.remove('open');
+  });
 });
 
 // Header scroll effect
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
-    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.08)';
+    header.classList.add('scrolled');
   } else {
-    header.style.boxShadow = 'none';
+    header.classList.remove('scrolled');
   }
 });
 

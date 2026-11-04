@@ -1,7 +1,7 @@
-# Kaam Wali — Local Skill Connect | Website Plan
+# Rozgaar Scheme — Local Skill Connect | Website Plan
 
 ## 1. Project Overview
-**Product:** Kaam Wali — a local skill-connect marketplace that matches households/businesses with nearby skilled workers (cleaning, cooking, child/elder care, repairs, beauty, tutoring, etc.).  
+**Product:** Rozgaar Scheme — a local skill-connect marketplace that matches households/businesses with nearby skilled workers (cleaning, cooking, child/elder care, repairs, beauty, tutoring, etc.).  
 **Goal:** Let users find, vet, book, and pay trusted local workers within their neighborhood, while giving workers a simple way to list skills, set rates, and manage bookings.
 
 ---

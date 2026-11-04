@@ -3,25 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kaam Wali | Local Skill Connect</title>
+  <title>Rozgaar Scheme | Local Skill Connect</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <header class="header" id="header">
+<header class="header" id="header">
     <nav class="nav container">
-      <a href="#" class="logo">Kaam<span class="logo-accent">Wali</span></a>
+      <a href="#" class="logo">
+        <span class="logo-mark">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="7" width="10" height="14" rx="2" fill="currentColor"/>
+            <rect x="16" y="4" width="10" height="17" rx="2" fill="currentColor" opacity="0.8"/>
+            <rect x="3" y="24" width="23" height="2" rx="1" fill="currentColor" opacity="0.4"/>
+          </svg>
+        </span>
+        Rozgaar<span class="logo-accent">Scheme</span>
+      </a>
       <div class="nav-links" id="navLinks">
-        <a href="#home">Home</a>¬
-        <a href="#categories">Services</a>
-        <a href="#how-it-works">How it works</a>
-        <a href="#trust">Trust</a>
-        <a href="#workers" class="btn btn-primary">Find Help Nearby</a>
+        <a href="#home" class="nav-item"><span>Home</span></a>
+        <a href="#categories" class="nav-item"><span>Services</span></a>
+        <a href="#how-it-works" class="nav-item"><span>How it works</span></a>
+        <a href="#trust" class="nav-item"><span>Trust</span></a>
+        <a href="#workers" class="btn btn-primary nav-cta">Find Help Nearby</a>
       </div>
       <div class="nav-actions">
         <a href="#login" class="btn btn-outline" onclick="openLogin(event)">Login</a>
         <button class="btn btn-primary ml-3 hidden-md">Post a Job</button>
-        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">&#9776;</button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <span class="menu-icon"><span></span><span></span><span></span></span>
+        </button>
       </div>
     </nav>
   </header>
@@ -139,7 +150,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Safety you can trust</h2>
-        <p>Every worker is verified before they join Kaam Wali</p>
+        <p>Every worker is verified before they join Rozgaar Scheme</p>
       </div>
       <div class="trust-grid">
         <div class="trust-item">
@@ -205,7 +216,7 @@
   <footer class="footer">
     <div class="container footer-grid">
       <div class="footer-brand">
-        <a href="#" class="logo">Kaam<span class="logo-accent">Wali</span></a>
+        <a href="#" class="logo">Rozgaar<span class="logo-accent">Scheme</span></a>
         <p>Connecting households with trusted local skills.</p>
       </div>
       <div class="footer-links">
@@ -232,7 +243,7 @@
         </div>
       </div>
       <div class="footer-copy">
-        <p>&copy; 2026 Kaam Wali. All rights reserved.</p>
+        <p>&copy; 2026 Rozgaar Scheme. All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -303,7 +314,7 @@
       <div class="modal-body">
         <div class="auth-header">
           <h2>Welcome back</h2>
-          <p>Sign in to your Kaam Wali account</p>
+          <p>Sign in to your Rozgaar Scheme account</p>
         </div>
         <form id="loginForm" class="auth-form">
           <div class="form-group">
