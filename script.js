@@ -404,3 +404,12 @@ window.addEventListener('scroll', () => {
 
 // Initialize
 renderWorkers();
+
+// Mobile tabbar active state
+const tabItems = document.querySelectorAll('.tab-item');
+tabItems.forEach(item => {
+  item.addEventListener('click', () => {
+    tabItems.forEach(t => t.classList.remove('active'));
+    item.classList.add('active');
+  });
+});
