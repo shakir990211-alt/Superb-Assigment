@@ -137,11 +137,11 @@ img { max-width: 100%; display: block; }
 }
 .menu-toggle.open .menu-icon span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-toggle.open .menu-icon span:nth-child(2) { opacity: 0; }
-menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Mobile nav panel base */
+/* Mobile nav panel base — starts below mobile tabbar */
 .nav-links {
-  position: fixed; inset: 76px 0 0 0;
+  position: fixed; inset: 70px 0 0 0;
   background: var(--gradient);
   border-bottom: 1px solid rgba(255,255,255,0.2);
   flex-direction: column; align-items: stretch; padding: 1.5rem 1rem 2rem;
@@ -291,8 +291,32 @@ menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rota
 .chat-input-area { display: flex; gap: 0.5rem; padding: 1rem 1.5rem; border-top: 1px solid var(--border); background: #fff; border-radius: 0 0 var(--radius-lg) var(--radius-lg); }
 .chat-input-area input { flex: 1; padding: 0.75rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.95rem; font-family: inherit; outline: none; }
 .chat-input-area input:focus { border-color: var(--primary); }
-.chat-fab { position: fixed; bottom: 1.5rem; right: 1.5rem; width: 56px; height: 56px; border-radius: 50%; background: var(--gradient); color: #fff; border: none; font-size: 1.5rem; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: var(--shadow-lg); z-index: 100; transition: transform var(--transition); }
+/* Chat FAB — avoid overlapping mobile tabbar */
+.chat-fab {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--gradient);
+  color: #fff;
+  border: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+  transition: transform var(--transition);
+}
 .chat-fab:hover { transform: scale(1.08); }
+
+/* Mobile: shift chat FAB up since tabbar is at top */
+@media (max-width: 768px) {
+  .chat-fab { bottom: 90px; right: 1rem; width: 48px; height: 48px; font-size: 1.25rem; }
+}
 
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 .result-count { font-size: 0.9rem; color: var(--text-muted); }
@@ -349,7 +373,6 @@ menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rota
   .modal-body { padding: 2rem; }
   .footer-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }
   .cta-card { margin: 0; border-radius: var(--radius-lg); }
-  .chat-fab { width: 56px; height: 56px; font-size: 1.5rem; bottom: 1.5rem; right: 1.5rem; }
 }
 
 /* Tablet landscape & small desktop */
@@ -428,13 +451,6 @@ menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rota
   body { padding-top: 70px; padding-bottom: 0; }
 }
 
-/* Notched devices safe area */
-@supports (padding: max(0px)) {
-  .container { padding-left: max(1.5rem, env(safe-area-inset-left)); padding-right: max(1.5rem, env(safe-area-inset-right)); }
-  .hero { padding-bottom: max(8rem, env(safe-area-inset-bottom)); }
-  body { padding-top: max(70px, env(safe-area-inset-top) + 10px); padding-bottom: 0; }
-}
-
 /* Landscape phones */
 @media (max-height: 500px) and (orientation: landscape) and (max-width: 768px) {
   .hero { padding: 3rem 0 3rem; }
@@ -442,4 +458,31 @@ menu-toggle.open .menu-icon span:nth-child(3) { transform: translateY(-7px) rota
   .hero-grid { gap: 1.5rem; }
   .modal { max-height: 95vh; }
   .chat-modal { max-height: 95vh; }
+  .mobile-tabbar { height: 55px; }
+  .tab-item { font-size: 0.6rem; padding: 4px 6px; }
+  .tab-item .tab-icon { font-size: 1.2rem; }
+  body { padding-top: 55px; }
+}
+
+/* Extra small phones (320px–480px) */
+@media (max-width: 480px) {
+  .hero-content h1 { font-size: clamp(1.75rem, 10vw, 2.5rem); }
+  .search-card { padding: 1.25rem; }
+  .btn { padding: 0.75rem 1.25rem; font-size: 0.95rem; min-height: 44px; }
+  .worker-img { height: 160px; }
+  .section { padding: 3.5rem 0; }
+  .nav { height: 64px; }
+  .logo { font-size: 1.4rem; }
+  .logo-mark { width: 34px; height: 34px; }
+  .modal-body { padding: 1.25rem; }
+  .chat-input-area input { font-size: 1rem; }
+  .mobile-tabbar { height: 60px; }
+  body { padding-top: 60px; }
+}
+
+/* Notched devices safe area */
+@supports (padding: max(0px)) {
+  .container { padding-left: max(1.5rem, env(safe-area-inset-left)); padding-right: max(1.5rem, env(safe-area-inset-right)); }
+  .hero { padding-bottom: max(8rem, env(safe-area-inset-bottom)); }
+  body { padding-top: max(70px, env(safe-area-inset-top) + 10px); padding-bottom: 0; }
 }
