@@ -293,7 +293,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
 
 function contactWhatsApp(area) {
   const number = "919876543210";
-  const text = `Hi, I saw your Rozgaar Scheme profile for services in ${area}. I'd like to book a service.`;
+  const text = `Hi, I saw your Apna Karobar profile for services in ${area}. I'd like to book a service.`;
   const url = `https://wa.me/${number}?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
 }
